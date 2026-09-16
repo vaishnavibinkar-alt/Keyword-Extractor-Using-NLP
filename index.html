@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NLP Keyword Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🔑 NLP Keyword Extractor</h1>
+
+        <p>Enter your text and extract important keywords.</p>
+
+        <form method="POST">
+
+            <textarea name="text" placeholder="Enter your paragraph here..." required>{{ text }}</textarea>
+
+            <br>
+
+            <button type="submit">Extract Keywords</button>
+
+        </form>
+
+        {% if keywords %}
+
+        <div class="result">
+
+            <h2>Extracted Keywords</h2>
+
+            {% for keyword in keywords %}
+                <span class="keyword">{{ keyword }}</span>
+            {% endfor %}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
